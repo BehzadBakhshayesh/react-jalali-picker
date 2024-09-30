@@ -11,9 +11,10 @@ import clsx from "clsx";
 dayjs.extend(localeData);
 dayjs.extend(calendar);
 dayjs.extend(jalaliday);
+dayjs["calendar"]?.("jalali");
 dayjs.locale("fa");
-const locale = "fa";
 
+const locale = "fa";
 
 interface PropsType {
   value: Dayjs | null;

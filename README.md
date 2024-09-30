@@ -33,10 +33,10 @@ export default App;
 
 ## DatePicker Props Table
 
-| Prop       | Type          | Required       | Default Value | Description |
-| ---------- | ------------- | -------------- | ------------- | ----------- | ------------------------------------------------------- |
-| `value`    | `Dayjs        | null`          | YES           | `null`      | The currently selected date.                            |
-| `onChange` | `(date: Dayjs | null) => void` | YES           | -           | Callback function that is called when the date changes. |
+| Prop       | Type                                                             | Required | Default Value | Description                                                   |
+| ---------- | ---------------------------------------------------------------- | -------- | ------------- | ------------------------------------------------------------- |
+| value      | `Dayjs \| null`                                                  | Yes      | `null`        | The currently selected date date.                             |
+| onChange   | `(Dayjs \| null) => void`                                        | Yes      | `undefined`   | Callback function that is called when the date range changes. |
 
 ## RangePicker Usage
 
@@ -59,10 +59,11 @@ export default App;
 
 ## RangePicker Props Table
 
-| Prop       | Type              | Required | Default Value | Description                                             |
-| ---------- | ----------------- | -------- | ------------- | ------------------------------------------------------- |
-| `value`    | `Dayjs            | YES      | -             | The currently selected date.                            |
-| `onChange` | `(range) => void` | YES      | -             | Callback function that is called when the date changes. |
+| Prop       | Type                                                             | Required | Default Value | Description                                                   |
+| ---------- | ---------------------------------------------------------------- | -------- | ------------- | ------------------------------------------------------------- |
+| value      | `{ start: Dayjs \| null; end: Dayjs \| null; }`                  | Yes      | `null`        | The currently selected date range.                            |
+| onChange   | `(range: { start: Dayjs \| null; end: Dayjs \| null; }) => void` | Yes      | `undefined`   | Callback function that is called when the date range changes. |
+
 
 ## Author
 
