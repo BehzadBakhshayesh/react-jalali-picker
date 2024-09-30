@@ -17,6 +17,7 @@ yarn add react-jalali-picker
 ```jsx
 import React, { useState } from "react";
 import { DatePicker } from "react-jalali-picker";
+import "react-jalali-picker/dist/styles.css";
 
 const App = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -42,7 +43,8 @@ export default App;
 
 ```jsx
 import React, { useState } from "react";
-import { RangePicker } from "react-jalali-picker";
+import { DatePicker } from "react-jalali-picker";
+import "react-jalali-picker/dist/styles.css";
 
 const App = () => {
   const [selectedRange, setSelectedRange] = useState(null);
