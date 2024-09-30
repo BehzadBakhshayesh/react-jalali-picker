@@ -1,0 +1,126 @@
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-date-picker-wrapper,
+.custom-range-picker-wrapper {
+    @include center;
+    gap: 2rem;
+    direction: rtl;
+    .current-month,
+    .next-month {
+        width: 28rem;
+        text-align: center;
+        .calendar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+
+            .month-year-header {
+                flex: 1;
+            }
+
+            .next-btns,
+            .prv-btns {
+                display: flex;
+                gap: 0.5rem;
+            }
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+
+            .day-name {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+            .day {
+                width: 3.6rem;
+                height: 3.6rem;
+                @include center;
+                cursor: pointer;
+                border-radius: 0.5rem;
+
+                &:hover {
+                    color: #fff;
+                    background-color: #ffb25e;
+                }
+
+                &.isSelected {
+                    background-color: #ff8601;
+                    color: white;
+                }
+
+                &.isInRange {
+                    background-color: #ffefdd;
+                    border: 1px solid #ffb25e;
+                    box-sizing: border-box;
+                }
+
+                &.disabled-day {
+                    color: #ccc;
+                    pointer-events: none;
+                    opacity: 0.5;
+                }
+            }
+
+            .range-info {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .custom-range-picker-wrapper {
+        .next-month {
+            display: none;
+        }
+
+        .current-month .calendar-header .next-btns {
+            display: flex;
+        }
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .custom-range-picker-wrapper {
+        .next-month {
+            display: none;
+        }
+
+        .current-month .calendar-header .next-btns {
+            display: flex;
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .custom-range-picker-wrapper {
+        .next-month {
+            display: block;
+        }
+
+        .current-month .calendar-header .next-btns {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .custom-range-picker-wrapper {
+        .next-month {
+            display: block;
+        }
+
+        .current-month .calendar-header .next-btns {
+            display: none;
+        }
+    }
+}

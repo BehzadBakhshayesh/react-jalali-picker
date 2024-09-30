@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "esnext", "es2015"],  
+    "target": "es5",
+    "module": "commonjs",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,               
+    "declaration": true,
+    "moduleResolution": "node",
+    "outDir": "./dist"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["dist", "node_modules"]
+}
