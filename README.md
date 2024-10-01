@@ -24,7 +24,7 @@ const App = () => {
 
   return (
     <div>
-      <DatePicker value={selectedDate} onChange={setSelectedDate} />
+      <DatePicker value={selectedDate} onChange={(date)=>setSelectedDate(date)} />
     </div>
   );
 };
@@ -32,7 +32,7 @@ const App = () => {
 export default App;
 ```
 
-## DatePicker Props Table
+## DatePicker Props
 
 | Prop       | Type                                                             | Required | Default Value | Description                                                   |
 | ---------- | ---------------------------------------------------------------- | -------- | ------------- | ------------------------------------------------------------- |
@@ -47,11 +47,14 @@ import { DatePicker } from "react-jalali-picker";
 import "react-jalali-picker/dist/styles.css";
 
 const App = () => {
-  const [selectedRange, setSelectedRange] = useState(null);
+    const [dateRange, setDateRange] = useState({
+    start: null,
+    end: null,
+  });
 
   return (
     <div>
-      <RangePicker value={selectedRange} onChange={setSelectedRange} />
+      <RangePicker value={dateRange} onChange={(range)=>setDateRange(range)} />
     </div>
   );
 };
