@@ -38,9 +38,9 @@ export default App;
 | ------------ | --------------------------------------------------------------- | -------- | ------------- | --------------------------------------------------------------- |
 | value        | `Dayjs \| null`                                                 | Yes      | `null`        | The currently selected date range as a Dayjs object.            |
 | onChange     | `(range: { start: Dayjs \| null; end: Dayjs \| null }) => void` | Yes      | `undefined`   | Callback function called when the date range is updated.        |
-| locale       | `("fa" | "en")`                                                 | No       | `"fa"`        | Sets the locale for displaying dates; defaults to Persian (fa). |
-| calendarType | `"jalali" | "gregory"`                                          | No       | `"jalali"`    | Determines which calendar system to use for date selection.     |
-| direction    | `"rtl" | "ltr"`                                                 | No       | `"rtl"`       | Specifies the text direction; defaults to right-to-left (rtl).  |
+| locale       | `"fa"`  or `"en"`                                               | No       | `"fa"`        | Sets the locale for displaying dates; defaults to Persian (fa). |
+| calendarType | `"jalali"` or  `"gregory"`                                      | No       | `"jalali"`    | Determines which calendar system to use for date selection.     |
+| direction    | `"rtl"`  or `"ltr"`                                             | No       | `"rtl"`       | Specifies the text direction; defaults to right-to-left (rtl).  |
 
 
 ## RangePicker Usage
@@ -68,13 +68,13 @@ export default App;
 
 ## RangePicker Props
 
-| Prop         | Type                                                             | Required | Default Value | Description                                                    |
-| ----------   | ---------------------------------------------------------------- | -------- | ------------- | -------------------------------------------------------------  |
-| value        | `{ start: Dayjs \| null; end: Dayjs \| null; }`                  | Yes      | `null`        | The currently selected date range.                             |
-| onChange     | `(range: { start: Dayjs \| null; end: Dayjs \| null; }) => void` | Yes      | `undefined`   | Callback function that is called when the date range changes.  |
-| locale       | `"fa" | "en"`                                                    | No       | `"fa"`        | Sets the locale for displaying dates; defaults to Persian (fa).|
-| calendarType | `"jalali" | "gregory"`                                           | No       | `"jalali"`    | Determines which calendar system to use for date selection.    |
-| direction    | `"rtl" | "ltr"`                                                  | No       | `"rtl"`       | Specifies the text direction; defaults to right-to-left (rtl). |
+| Prop         | Type                                                             | Required | Default Value | Description                                                     |
+| ------------ | ---------------------------------------------------------------- | -------- | ------------- | --------------------------------------------------------------- |
+| value        | `{ start: Dayjs \| null; end: Dayjs \| null; }`                  | Yes      | `null`        | The currently selected date range.                              |
+| onChange     | `(range: { start: Dayjs \| null; end: Dayjs \| null; }) => void` | Yes      | `undefined`   | Callback function that is called when the date range changes.   |
+| locale       | `"fa"`  or `"en"`                                                | No       | `"fa"`        | Sets the locale for displaying dates; defaults to Persian (fa). |
+| calendarType | `"jalali"` or  `"gregory"`                                       | No       | `"jalali"`    | Determines which calendar system to use for date selection.     |
+| direction    | `"rtl"`  or `"ltr"`                                              | No       | `"rtl"`       | Specifies the text direction; defaults to right-to-left (rtl).  |
 
 
 ## Author
