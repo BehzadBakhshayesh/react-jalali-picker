@@ -1,4 +1,4 @@
-# React-Jalali-Picker
+# React Jalali (Date or Range) Picker
 
 A React component library for selecting dates, featuring both a DatePicker and a RangePicker that support Jalali and Gregorian calendars.
 
