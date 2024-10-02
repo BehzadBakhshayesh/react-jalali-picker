@@ -1,7 +1,7 @@
 {
   "name": "react-jalali-picker",
   "description": "A React component library for selecting dates, featuring both a DatePicker and a RangePicker that support Jalali (Persian) and Gregorian calendars.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -37,7 +37,10 @@
     "gregory",
     "datepicker",
     "rangepicker",
-    "Persian"
+    "Persian",
+    "date-picker",
+    "range-picker",
+    "react"
   ],
   "author": "Behzad Bakhshayesh <behzadbakhshayesh123456@gmail.com>"
 }

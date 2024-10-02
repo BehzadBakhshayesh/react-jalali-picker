@@ -112,7 +112,7 @@ const RangePicker: React.FC<PropsType> = ({
 
   return (
     <>
-      <div className={clsx("custom-range-picker-wrapper")} style={{ direction }}>
+      <div className={clsx("react-jalali-range-picker-wrapper", direction)}>
         <div className="current-month">
           <div className="calendar-header">
             <div className="prv-btns">
