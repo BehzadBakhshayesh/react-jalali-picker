@@ -1,40 +1,31 @@
-
-
-
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import jalaliday from "jalaliday";
-import calendar from "dayjs/plugin/calendar";
 import localeData from "dayjs/plugin/localeData";
 import clsx from "clsx";
 
 dayjs.extend(localeData);
-dayjs.extend(calendar);
 dayjs.extend(jalaliday);
-dayjs["calendar"]?.("jalali");
-dayjs.locale("fa");
-
-const locale = "fa";
 
 interface PropsType {
-    value: { start: Dayjs | null; end: Dayjs | null };
-    onChange: (range: { start: Dayjs | null; end: Dayjs | null }) => void;
-  }
+  value: { start: Dayjs | null; end: Dayjs | null };
+  onChange: (range: { start: Dayjs | null; end: Dayjs | null }) => void;
+  locale?: "fa" | "en";
+  calendarType?: "jalali" | "gregory";
+  direction?: "rtl" | "ltr"
+}
 
 const RangePicker: React.FC<PropsType> = ({
   value: { start: startDate, end: endDate },
   onChange,
+  locale = "fa",
+  calendarType = "jalali",
+  direction = "rtl"
 }) => {
-  const [currentMonth, setCurrentMonth] = useState<Dayjs>(
-    dayjs().locale(locale)
-  );
-  useEffect(() => {
-    setCurrentMonth(dayjs().locale(locale));
-  }, [locale]);
-
+  const [currentMonth, setCurrentMonth] = useState<Dayjs>(dayjs(dayjs().locale(locale).calendar(calendarType)));
   const getWeekdays: string[] = (() => {
-    dayjs.locale(locale);
-    const localeData = dayjs().localeData();
+    const localizedDayjs = dayjs().locale(locale);
+    const localeData = localizedDayjs.localeData();
     const weekdaysMin = localeData.weekdaysMin();
     const firstDayOfWeek = localeData.firstDayOfWeek();
     const orderedWeekdays: string[] = [];
@@ -58,10 +49,7 @@ const RangePicker: React.FC<PropsType> = ({
 
   const renderDays = (month: Dayjs) => {
     const daysInMonth = month.daysInMonth();
-    const firstDayOfMonth =
-      locale === "fa"
-        ? (month.startOf("month").day() + 1) % 7
-        : month.startOf("month").day();
+    const firstDayOfMonth = month.startOf("month").day()
 
     const prevMonth = month.subtract(1, "month");
     const nextMonth = month.add(1, "month");
@@ -124,12 +112,11 @@ const RangePicker: React.FC<PropsType> = ({
 
   return (
     <>
-      <div className="custom-range-picker-wrapper">
+      <div className={clsx("custom-range-picker-wrapper")} style={{ direction }}>
         <div className="current-month">
           <div className="calendar-header">
             <div className="prv-btns">
               <button onClick={headerBtns.bind(null, false, "year")}>‹‹</button>
-
               <button onClick={headerBtns.bind(null, false, "month")}>‹</button>
             </div>
             <div className="month-year-header">
@@ -137,7 +124,6 @@ const RangePicker: React.FC<PropsType> = ({
             </div>
             <div className="next-btns">
               <button onClick={headerBtns.bind(null, true, "month")}>›</button>
-
               <button onClick={headerBtns.bind(null, true, "year")}>››</button>
             </div>
           </div>
@@ -175,4 +161,4 @@ const RangePicker: React.FC<PropsType> = ({
   );
 };
 
-export default RangePicker
+export default RangePicker;

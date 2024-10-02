@@ -1,36 +1,31 @@
-
-
-
 import React, { useState } from "react";
 import dayjs, { Dayjs } from "dayjs";
 import jalaliday from "jalaliday";
-import calendar from "dayjs/plugin/calendar";
 import localeData from "dayjs/plugin/localeData";
 import clsx from "clsx";
 
 dayjs.extend(localeData);
-dayjs.extend(calendar);
 dayjs.extend(jalaliday);
-dayjs["calendar"]?.("jalali");
-dayjs.locale("fa");
-
-const locale = "fa";
 
 interface PropsType {
   value: Dayjs | null;
   onChange: (date: Dayjs | null) => void;
+  locale?: "fa" | "en";
+  calendarType?: "jalali" | "gregory";
+  direction?: "rtl" | "ltr"
 }
 
  const DatePicker: React.FC<PropsType> = ({
   value: selectedDate,
   onChange,
+  locale = "fa",
+  calendarType = "jalali",
+  direction = "rtl"
 }) => {
-  const [currentMonth, setCurrentMonth] = useState<Dayjs>(
-    dayjs().locale(locale)
-  );
+  const [currentMonth, setCurrentMonth] = useState<Dayjs>(dayjs(dayjs().locale(locale).calendar(calendarType)));
   const getWeekdays: string[] = (() => {
-    dayjs.locale(locale);
-    const localeData = dayjs().localeData();
+    const localizedDayjs = dayjs().locale(locale);
+    const localeData = localizedDayjs.localeData();
     const weekdaysMin = localeData.weekdaysMin();
     const firstDayOfWeek = localeData.firstDayOfWeek();
     const orderedWeekdays: string[] = [];
@@ -48,10 +43,7 @@ interface PropsType {
 
   const renderDays = (month: Dayjs) => {
     const daysInMonth = month.daysInMonth();
-    const firstDayOfMonth =
-      locale === "fa"
-        ? (month.startOf("month").day() + 1) % 7
-        : month.startOf("month").day();
+    const firstDayOfMonth = month.startOf("month").day()
 
     const prevMonth = month.subtract(1, "month");
     const nextMonth = month.add(1, "month");
@@ -107,7 +99,7 @@ interface PropsType {
 
   return (
     <>
-      <div className="custom-date-picker-wrapper">
+      <div className={clsx("react-jalali-date-picker-wrapper", direction)}>
         <div className="current-month">
           <div className="calendar-header">
             <div className="prv-btns">

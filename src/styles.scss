@@ -4,8 +4,8 @@
     justify-content: center;
 }
 
-.custom-date-picker-wrapper,
-.custom-range-picker-wrapper {
+.react-jalali-date-picker-wrapper,
+.react-jalali-range-picker-wrapper {
     @include center;
     gap: 2rem;
     direction: rtl;
@@ -49,17 +49,17 @@
 
                 &:hover {
                     color: #fff;
-                    background-color: #ffb25e;
+                    background-color: #6c177f;
                 }
 
                 &.isSelected {
-                    background-color: #ff8601;
+                    background-color: #6c177f;
                     color: white;
                 }
 
                 &.isInRange {
-                    background-color: #ffefdd;
-                    border: 1px solid #ffb25e;
+                    background-color: #6c177f30;
+                    border: 1px solid #480d7c;
                     box-sizing: border-box;
                 }
 
@@ -76,9 +76,15 @@
         }
     }
 }
+.rtl{
+    direction: rtl;
+}
+.ltr{
+    direction: ltr;
+}
 
 @media only screen and (max-width: 500px) {
-    .custom-range-picker-wrapper {
+    .react-jalali-range-picker-wrapper {
         .next-month {
             display: none;
         }
@@ -90,7 +96,7 @@
 }
 
 @media only screen and (min-width: 500px) {
-    .custom-range-picker-wrapper {
+    .react-jalali-range-picker-wrapper {
         .next-month {
             display: none;
         }
@@ -102,7 +108,7 @@
 }
 
 @media only screen and (min-width: 800px) {
-    .custom-range-picker-wrapper {
+    .react-jalali-range-picker-wrapper {
         .next-month {
             display: block;
         }
@@ -114,7 +120,7 @@
 }
 
 @media only screen and (min-width: 1000px) {
-    .custom-range-picker-wrapper {
+    .react-jalali-range-picker-wrapper {
         .next-month {
             display: block;
         }
