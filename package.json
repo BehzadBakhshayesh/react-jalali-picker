@@ -42,5 +42,9 @@
     "range-picker",
     "react"
   ],
-  "author": "Behzad Bakhshayesh <behzadbakhshayesh123456@gmail.com>"
+  "license": "MIT",
+  "author": {
+    "name": "Behzad Bakhshayesh",
+    "email": "behzadbakhshayesh123456@gmail.com"
+  }
 }
