@@ -43,7 +43,10 @@ interface PropsType {
 
   const renderDays = (month: Dayjs) => {
     const daysInMonth = month.daysInMonth();
-    const firstDayOfMonth = month.startOf("month").day()
+    const firstDayOfMonth =
+      locale === "fa"
+        ? (month.startOf("month").day() + 1) % 7
+        : month.startOf("month").day();
 
     const prevMonth = month.subtract(1, "month");
     const nextMonth = month.add(1, "month");
