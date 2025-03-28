@@ -47,7 +47,7 @@ export default App;
 
 ```jsx
 import React, { useState } from "react";
-import { DatePicker } from "react-jalali-picker";
+import { RangePicker  } from "react-jalali-picker";
 import "react-jalali-picker/dist/styles.css";
 
 const App = () => {
